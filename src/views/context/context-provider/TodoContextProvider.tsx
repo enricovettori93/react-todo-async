@@ -1,7 +1,21 @@
 import React, {useState} from "react";
-import {ITodo, ITodoBasicFields} from "../models/ToDo";
-import {TodoContext} from "./TodoContext";
-import TodoService from "../services/todo.service";
+import {ITodo, ITodoBasicFields} from "../../../models/ToDo";
+import {ITodoContext} from "./TodoContext";
+import TodoService from "../../../services/todo.service";
+
+export const TodoContext = React.createContext<ITodoContext>({
+    todos: [],
+    fetching: false,
+    error: null,
+    createTodo: () => {
+    },
+    deleteTodo: () => {
+    },
+    fetchAllTodos: () => {
+    },
+    updateTodo: () => {
+    }
+})
 
 export const TodoContextProvider = (props: React.PropsWithChildren<any>) => {
     const [todos, setTodos] = useState<ITodo[]>([]);

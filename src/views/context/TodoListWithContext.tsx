@@ -1,7 +1,7 @@
 import React, {useContext, useEffect} from "react";
-import {TodoContext} from "../context/TodoContext";
-import Todo from "../components/Todo";
-import NewTodo from "../components/NewTodo";
+import {TodoContext} from "./context-provider/TodoContextProvider";
+import Todo from "../../components/Todo";
+import NewTodo from "../../components/NewTodo";
 
 const TodoListWithContext = () => {
     const todoContext = useContext(TodoContext);
@@ -27,7 +27,12 @@ const TodoListWithContext = () => {
                 {
                     todoContext.todos.map((todo) => (
                         <li key={todo.id} className={"my-2"}>
-                            <Todo todo={todo} onDelete={todoContext.deleteTodo} fetching={todoContext.fetching} onEdit={todoContext.updateTodo}/>
+                            <Todo
+                                todo={todo}
+                                fetching={todoContext.fetching}
+                                onDelete={todoContext.deleteTodo}
+                                onEdit={todoContext.updateTodo}
+                            />
                         </li>)
                     )
                 }

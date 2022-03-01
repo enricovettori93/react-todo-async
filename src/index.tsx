@@ -3,8 +3,8 @@ import ReactDOM from 'react-dom';
 import {BrowserRouter, Routes, Route} from "react-router-dom";
 import './index.scss';
 import App from './views/App';
-import TodoListWithContext from "./views/TodoListWithContext";
-import {TodoContextProvider} from "./context/TodoContextProvider";
+import TodoListWithContext from "./views/context/TodoListWithContext";
+import {TodoContextProvider} from "./views/context/context-provider/TodoContextProvider";
 import reportWebVitals from './reportWebVitals';
 
 const {worker} = require('./mocks/browser')
