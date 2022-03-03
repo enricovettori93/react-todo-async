@@ -1,13 +1,33 @@
 import React from 'react';
-import {Link} from "react-router-dom";
+import {BrowserRouter, Link, Route, Routes} from "react-router-dom";
+import TodoListWithContext from "./context/TodoListWithContext";
 import './App.scss';
+
+const HomeComponent = () => {
+    return (
+        <React.Fragment>
+            Available examples:
+            <ul>
+                <li>
+                    <Link to="/todo-context">React Context</Link>
+                </li>
+            </ul>
+        </React.Fragment>
+    )
+}
 
 function App() {
     return (
-        <div className="App d-flex flex-column">
-            Some random stuff
-            <Link to={"/todo-context"}>Todolist with react context</Link>
-        </div>
+        <BrowserRouter>
+            <Link to="/">Home</Link>
+            <div className="App d-flex flex-column">
+                <Routes>
+                    <Route path={"/"} element={<HomeComponent/>}/>
+                    <Route path={"/todo-context"}
+                           element={<TodoListWithContext/>}/>
+                </Routes>
+            </div>
+        </BrowserRouter>
     );
 }
 

@@ -1,9 +1,9 @@
 import React, {useContext, useEffect} from "react";
-import {TodoContext} from "./context-provider/TodoContextProvider";
+import {TodoContext, TodoContextProvider} from "./context-provider/TodoContextProvider";
 import Todo from "../../components/Todo";
 import NewTodo from "../../components/NewTodo";
 
-const TodoListWithContext = () => {
+const TodoList = () => {
     const todoContext = useContext(TodoContext);
 
     useEffect(() => {
@@ -21,7 +21,6 @@ const TodoListWithContext = () => {
 
     return (
         <React.Fragment>
-            <p>TodoList with react context</p>
             <NewTodo onSubmit={todoContext.createTodo}/>
             <ul className={"w-25"}>
                 {
@@ -43,5 +42,13 @@ const TodoListWithContext = () => {
         </React.Fragment>
     );
 };
+
+const TodoListWithContext = () => {
+    return (
+        <TodoContextProvider>
+            <TodoList/>
+        </TodoContextProvider>
+    )
+}
 
 export default TodoListWithContext;

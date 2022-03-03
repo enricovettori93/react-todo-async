@@ -1,10 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {BrowserRouter, Routes, Route} from "react-router-dom";
 import './index.scss';
 import App from './views/App';
-import TodoListWithContext from "./views/context/TodoListWithContext";
-import {TodoContextProvider} from "./views/context/context-provider/TodoContextProvider";
 import reportWebVitals from './reportWebVitals';
 
 const {worker} = require('./mocks/browser')
@@ -12,13 +9,7 @@ worker.start();
 
 ReactDOM.render(
     <React.StrictMode>
-        <BrowserRouter>
-            <Routes>
-                <Route path={"/"} element={<App/>}/>
-                <Route path={"/todo-context"}
-                       element={<TodoContextProvider><TodoListWithContext/></TodoContextProvider>}/>
-            </Routes>
-        </BrowserRouter>
+        <App/>
     </React.StrictMode>,
     document.getElementById('root')
 );
