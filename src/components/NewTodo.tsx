@@ -19,7 +19,7 @@ const NewTodo = (props: IProps) => {
 
     return (
         <React.Fragment>
-            <Form ref={ref} onSubmit={handleFormSubmit} className={"w-25"}>
+            <Form ref={ref} onSubmit={handleFormSubmit}>
                 <Form.Group className="mb-3" controlId="todoText">
                     <Form.Label>Insert new todo</Form.Label>
                     <Form.Control type="text" placeholder="todo" value={todoText} aria-required={true} required

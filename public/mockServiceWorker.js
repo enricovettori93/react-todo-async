@@ -209,7 +209,7 @@ async function getResponse(event, client, requestId) {
 
     case 'NETWORK_ERROR': {
       const { name, message } = clientMessage.payload
-      const networkError = new Error(message)
+      const networkError = new ErrorMessage(message)
       networkError.name = name
 
       // Rejecting a request Promise emulates a network error.

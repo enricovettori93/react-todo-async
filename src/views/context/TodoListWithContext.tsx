@@ -1,7 +1,8 @@
 import React, {useContext, useEffect} from "react";
 import {TodoContext, TodoContextProvider} from "./context-provider/TodoContextProvider";
-import Todo from "../../components/Todo";
 import NewTodo from "../../components/NewTodo";
+import ErrorMessage from "../../components/ErrorMessage";
+import TodoListing from "../../components/TodoListing";
 
 const TodoList = () => {
     const todoContext = useContext(TodoContext);
@@ -10,35 +11,16 @@ const TodoList = () => {
         todoContext.fetchAllTodos();
     }, []);
 
-
-    const error = () => {
-        if (todoContext.error) {
-            return (
-                <p>Error: {JSON.stringify(todoContext.error)}</p>
-            )
-        }
-    }
-
     return (
         <React.Fragment>
             <NewTodo onSubmit={todoContext.createTodo}/>
-            <ul className={"w-25"}>
-                {
-                    todoContext.todos.map((todo) => (
-                        <li key={todo.id} className={"my-2"}>
-                            <Todo
-                                todo={todo}
-                                fetching={todoContext.fetching}
-                                onDelete={todoContext.deleteTodo}
-                                onEdit={todoContext.updateTodo}
-                            />
-                        </li>)
-                    )
-                }
-            </ul>
-            {
-                error()
-            }
+            <TodoListing
+                todos={todoContext.todos}
+                fetching={todoContext.fetching}
+                onDelete={todoContext.deleteTodo}
+                onEdit={todoContext.updateTodo}
+            />
+            <ErrorMessage error={todoContext.error}/>
         </React.Fragment>
     );
 };
