@@ -5,6 +5,7 @@ In this repository you will find some ways to create a todo list but in an async
 CRUD operations are performed with **axios** and catched with **mws** for simulate a real environment.
 
 - /views/context -> here's used the React context API
+- /views/redux-slice -> here's used the Redux pattern built with store slice and thunk
 
 ### `npm start`
 

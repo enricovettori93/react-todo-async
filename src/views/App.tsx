@@ -1,7 +1,7 @@
 import React from 'react';
 import {BrowserRouter, Link, Route, Routes} from "react-router-dom";
 import TodoListWithContext from "./context/TodoListWithContext";
-import TodoListWithReduxSlice from "./redux/TodoListWithReduxSlice";
+import TodoListWithReduxSlice from "./redux-slice/TodoListWithReduxSlice";
 import './App.scss';
 
 enum routes {
